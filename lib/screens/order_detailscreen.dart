@@ -1,4 +1,5 @@
 import 'package:dineadmin/utils/app_constant.dart';
+import 'package:dineadmin/widgets/cheboxvalue.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,6 +14,7 @@ class OrderDetailsScreen extends StatefulWidget {
 class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: AppConstant.backgroundColor,
       appBar: AppBar(title: Text("Order Details"),),
@@ -23,7 +25,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                Card(
               child:   Container(
                 color: Colors.lightBlue,
-                height: 150,
+                height: 200,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -50,6 +52,37 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ],
                       ),
                     ),
+                Divider(thickness: 2,),
+                    Center(
+                      child: GestureDetector(
+                        
+                        onTap: (() {
+                           showModalBottomSheet(
+            context: context,
+             backgroundColor: Colors.lightBlueAccent,
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            builder: (BuildContext context) {
+              return SizedBox(
+                height: 200,
+                child: Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:  <Widget>[
+                        Text('Add ons'),
+                        CheckValue()
+
+                      ],
+                  ),
+                ),
+              ); },
+          );
+                        }),
+                        child: Container(child: Text("Click for checking Add ons"),)),
+                    ),
+                     Divider(thickness: 2,),
                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
@@ -72,3 +105,4 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     );
   }
 }
+
