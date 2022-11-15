@@ -1,3 +1,4 @@
+import 'package:dineadmin/screens/order_detailscreen.dart';
 import 'package:dineadmin/utils/app_constant.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -16,38 +17,63 @@ class _RequesttabScreenState extends State<RequesttabScreen> {
     return Scaffold(
       backgroundColor: AppConstant.backgroundColor,
       body: ListView.builder(
-          itemCount: 5,
+          itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
             return Card(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-              children: [
+              child: Container(
+                color: Colors.limeAccent,
+                height: 120,
+                child: Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          child: Text('Confirm'),
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
-                          )),
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Text("User name", style: TextStyle(fontSize: 12)),
                     ),
-                    SizedBox(width: 30,),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        child: Text('Reject'),
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.red,
-                        ),
+                    Container(
+                      width: 500,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Item name",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                          Spacer(),
+                          Text("Oder pickup  time"),
+                          Spacer(),
+                         
+                         
+                        ],
                       ),
                     ),
-              ],
-            ),
-                  ),
-                ));
+
+                    Container(
+                      child: Row(
+                        mainAxisAlignment :MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(onPressed: (() => {
+                               Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const OrderDetailsScreen(),
+                                ),
+                              ),
+                            }
+                        ), 
+                        icon: Icon(Icons.check_circle_outline)),
+                        IconButton(onPressed: (() => {}), 
+                        icon: Icon(Icons.close_sharp))
+
+
+                    ],),)
+                  ],
+                ),
+              ),
+            );
           }),
     );
   }
