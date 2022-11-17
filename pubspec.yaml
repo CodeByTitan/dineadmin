@@ -81,6 +81,9 @@ flutter:
     - family: Ubuntu
       fonts:
         - asset: fonts/Ubuntu-Regular.ttf
+    - family: Josefin
+      fonts:
+        - asset: JosefinSans-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

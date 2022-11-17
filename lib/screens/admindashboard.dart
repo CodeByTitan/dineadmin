@@ -21,10 +21,13 @@ class _AdminDashboardState extends State<AdminDashboard> {
         backgroundColor: AppConstant.backgroundColor,
         appBar: AppBar(
           backgroundColor: AppConstant.backgroundColor,
-          title: Text("Hello user"
+          title: Text("Hello user",
+              style: TextStyle(
+                fontFamily: 'Ubuntu',
+              ),
               // 'Good ${greeting()} user!',
               ),
-          centerTitle: false,
+          centerTitle: true,
           leading: Builder(
             builder: (BuildContext context) {
               return Padding(
@@ -57,6 +60,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               Tab(
                 // icon: Icon(Icons.home_filled),
                 text: "Orders",
+
               ),
               Tab(
                 //  icon: Icon(Icons.account_box_outlined),
