@@ -19,12 +19,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
       length: 2,
       child: Scaffold(
         backgroundColor: AppConstant.backgroundColor,
-       appBar: AppBar(
-        backgroundColor: AppConstant.backgroundColor,
-          title: Text(
-            "Hello user"
-           // 'Good ${greeting()} user!',
-          ),
+        appBar: AppBar(
+          backgroundColor: AppConstant.backgroundColor,
+          title: Text("Hello user"
+              // 'Good ${greeting()} user!',
+              ),
           centerTitle: false,
           leading: Builder(
             builder: (BuildContext context) {
@@ -53,28 +52,23 @@ class _AdminDashboardState extends State<AdminDashboard> {
               );
             },
           ),
-           bottom: TabBar(
+          bottom: TabBar(
             tabs: [
               Tab(
-               // icon: Icon(Icons.home_filled),
+                // icon: Icon(Icons.home_filled),
                 text: "Orders",
               ),
               Tab(
-              //  icon: Icon(Icons.account_box_outlined),
+                //  icon: Icon(Icons.account_box_outlined),
                 text: "Request",
               ),
-             
             ],
           ),
         ),
-    body:  TabBarView(
-          children: [
-           OrdersTabScreen(),
-            RequesttabScreen()
-          ],
+        body: TabBarView(
+          children: [OrdersTabScreen(), RequesttabScreen()],
         ),
       ),
-    
     );
   }
 }
