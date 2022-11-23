@@ -19,58 +19,61 @@ class _RequesttabScreenState extends State<RequesttabScreen> {
       body: ListView.builder(
           itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: Container(
-                color: Colors.limeAccent,
-                height: 120,
-                child: Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: Text("User name", style: TextStyle(fontSize: 12)),
-                    ),
-                    Container(
-                      width: 500,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
+            return Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Card(
+                color: AppConstant.backgroundColor,
+                child: Container(
+                  decoration: const ShapeDecoration(
+                      color: Color(0xFFF0F4C3),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)))),
+                  height: 120,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("User name", style: TextStyle(fontSize: 15)),
+                            Text(
                               "Item name",
                               style: TextStyle(fontSize: 20),
                             ),
-                          ),
-                          Spacer(),
-                          Text("Oder pickup  time"),
-                          Spacer(),
-                         
-                         
+                            Text("Oder pickup  time"),
+                          ],
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconButton(
+                              onPressed: (() => {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const OrderDetailsScreen(),
+                                      ),
+                                    ),
+                                  }),
+                              icon: const Icon(
+                                Icons.check_circle_outline,
+                                color: Colors.green,
+                              )),
+                          IconButton(
+                              onPressed: (() => {}),
+                              icon: const Icon(
+                                Icons.close_sharp,
+                                color: Colors.red,
+                              ))
                         ],
                       ),
-                    ),
-
-                    Container(
-                      child: Row(
-                        mainAxisAlignment :MainAxisAlignment.spaceEvenly,
-                      children: [
-                        IconButton(onPressed: (() => {
-                               Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const OrderDetailsScreen(),
-                                ),
-                              ),
-                            }
-                        ), 
-                        icon: Icon(Icons.check_circle_outline)),
-                        IconButton(onPressed: (() => {}), 
-                        icon: Icon(Icons.close_sharp))
-
-
-                    ],),)
-                  ],
+                    ],
+                  ),
                 ),
               ),
             );
